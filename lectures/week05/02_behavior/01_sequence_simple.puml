@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Login Page" as Login
+participant "Auth Server" as Auth
+
+User -> Login : enter credentials
+Login -> Auth : verify credentials
+Auth --> Login : success/failure
+Login --> User : show result
+@enduml

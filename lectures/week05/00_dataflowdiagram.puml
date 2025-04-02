@@ -1,0 +1,10 @@
+@startuml
+actor User
+rectangle "Order System" as OrderSystem
+database "Order Database" as OrderDB
+
+User --> OrderSystem : Submit Order
+OrderSystem --> OrderDB : Store Order
+OrderDB --> OrderSystem : Retrieve Order Details
+OrderSystem --> User : Confirm Order
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+actor Driver
+actor Mechanic
+
+Mechanic --|> Driver
+
+rectangle "Car Dashboard System" {
+    usecase "Start Engine" as UC1
+    usecase "View Speed" as UC2
+    usecase "Check Fuel Level" as UC3
+    usecase "Receive Warnings" as UC4
+    usecase "Run Diagnostics" as UC5
+    usecase "Initialize Sensors" as UC6
+    usecase "Display Warning Details" as UC7
+}
+
+Driver --> UC1
+Driver --> UC2
+Driver --> UC3
+Driver --> UC4
+
+Mechanic --> UC5
+
+UC1 --> UC6 : <<include>>
+UC4 --> UC7 : <<extend>>
+@enduml

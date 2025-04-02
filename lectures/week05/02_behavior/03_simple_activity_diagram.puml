@@ -1,0 +1,12 @@
+@startuml
+start
+
+:Enter login credentials;
+if (Credentials valid?) then (yes)
+  :Redirect to dashboard;
+else (no)
+  :Show error message;
+endif
+
+stop
+@enduml

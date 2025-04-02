@@ -1,0 +1,48 @@
+@startuml
+class Vehicle {
+    +brand: String
+    +model: String
+    +year: int
+    +start(): void
+    +stop(): void
+}
+
+class Engine {
+    +horsepower: int
+    +fuelType: String
+    +startEngine(): void
+}
+
+class Wheel {
+    +size: float
+    +type: String
+    +rotate(): void
+}
+
+class Car {
+    +numDoors: int
+    +trunkSize: float
+    +openTrunk(): void
+}
+
+class Bike {
+    +hasPedals: boolean
+    +wheelSize: float
+    +ringBell(): void
+}
+
+class Driver {
+    +name: String
+    +licenseNumber: String
+    +drive(vehicle: Vehicle): void
+}
+
+Vehicle <|-- Car
+Vehicle <|-- Bike
+Vehicle *--> Engine : "has an"
+Car *--> "4" Wheel : "has 4 wheels"
+Bike *--> "2" Wheel : "has 2 wheels"
+
+Driver -- Vehicle : "drives"
+
+@enduml

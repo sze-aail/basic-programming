@@ -1,0 +1,28 @@
+@startuml
+actor Driver
+participant Vehicle
+participant Engine
+participant FuelSystem
+participant Battery
+
+Driver -> Vehicle : pressStartButton()
+activate Vehicle
+Vehicle -> Battery : supplyPower()
+activate Battery
+Battery -> Engine : provideElectricity()
+activate Engine
+Battery --> Vehicle : powerSupplied()
+deactivate Battery
+
+Engine -> FuelSystem : injectFuel()
+activate FuelSystem
+FuelSystem -> Engine : fuelCombustion()
+deactivate FuelSystem
+
+Engine -> Vehicle : engineStarts()
+deactivate Engine
+
+Vehicle -> Driver : displayStatus("Engine Started")
+deactivate Vehicle
+
+@enduml

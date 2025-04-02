@@ -1,0 +1,18 @@
+@startuml
+left to right direction
+actor Driver
+
+rectangle "Vehicle System" {
+    usecase "Start Engine" as UC1
+    usecase "Drive Vehicle" as UC2
+    usecase "Stop Vehicle" as UC3
+    usecase "Refuel" as UC4
+    usecase "Check Dashboard" as UC5
+}
+
+Driver --> UC1
+Driver --> UC2
+Driver --> UC3
+Driver --> UC4
+Driver --> UC5
+@enduml

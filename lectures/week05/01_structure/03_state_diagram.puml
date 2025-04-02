@@ -1,0 +1,22 @@
+@startuml
+[*] -> Parked
+
+Parked --> Starting : pressStartButton()
+Starting --> Running : engineStarted()
+Starting --> Parked : engineFailure()
+
+Running --> Moving : pressAccelerator()
+Moving --> Running : releaseAccelerator()
+Running --> Parked : pressStopButton()
+
+Running -> Refueling : lowFuel()
+Refueling -> Parked : refuelComplete()
+
+Moving -> Braking : pressBrake()
+Braking -> Moving : releaseBrake()
+Braking --> Parked : fullStop()
+
+[*] --> EmergencyStop : suddenObstacle()
+EmergencyStop --> Parked : resetSystem()
+
+@enduml

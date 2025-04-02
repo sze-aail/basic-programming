@@ -1,0 +1,67 @@
+@startuml
+' Classes
+class Vehicle {
+    +brand: String
+    +model: String
+    +year: int
+}
+
+class Driver {
+    +name: String
+    +licenseNumber: String
+    +drive(vehicle: Vehicle): void
+}
+
+class Engine {
+    +horsepower: int
+    +fuelType: String
+    +startEngine(): void
+}
+
+class Wheel {
+    +size: float
+    +type: String
+    +rotate(): void
+}
+
+class Fleet {
+    +fleetID: int
+    +addCar(car: Car): void
+}
+
+class Car {
+    +numDoors: int
+    +trunkSize: float
+}
+
+class ElectricCar {
+    +batteryCapacity: int
+    +chargeBattery(): void
+}
+
+class NavigationSystem {
+    +currentLocation: String
+    +calculateRoute(): void
+}
+
+class GPS {
+    +getCoordinates(): String
+}
+
+' Relationships
+' Association
+Driver -- Vehicle : "drives"
+' Multiplicity
+Car "1" *-- "4" Wheel : "has 4 wheels"
+Car <|- Vehicle
+' Aggregation
+Fleet o-- Car : "contains"
+' Composition
+Vehicle *-- Engine : "has an"
+' Composition
+Vehicle *- GPS : "has an"
+' Generalization
+Car <|-- ElectricCar : "inherits"
+' Dependency
+NavigationSystem ..> GPS : "depends on"
+@enduml

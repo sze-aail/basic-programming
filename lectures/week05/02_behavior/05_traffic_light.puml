@@ -1,0 +1,16 @@
+@startuml
+[*] --> Idle
+
+Idle --> Heating : roomTemp < targetTemp
+Idle --> Cooling : roomTemp > targetTemp
+
+Heating --> Idle : roomTemp >= targetTemp
+Cooling -> Idle : roomTemp <= targetTemp
+
+Idle --> Error : sensorFailure
+Heating --> Error : sensorFailure
+Cooling --> Error : sensorFailure
+
+Error --> Idle : systemReset
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+' Define Components
+[User Interface] --> (IControl)
+(IControl) ..> [Engine Control Unit] : implements
+
+' Define Message Flow
+[User Interface] -> [Engine Control Unit] : sendCommand()
+[Engine Control Unit] -> [User Interface] : sendFeedback()
+@enduml

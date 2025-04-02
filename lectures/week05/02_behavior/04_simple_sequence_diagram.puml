@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "LoginPage" as UI
+participant "AuthService" as Auth
+participant "Database" as DB
+
+User -> UI : enterCredentials()
+UI -> Auth : validateCredentials(username, password)
+Auth -> DB : fetchUserData(username)
+DB --> Auth : userData
+Auth -> Auth : comparePassword()
+Auth --> UI : success/failure
+UI --> User : showResult()
+
+@enduml
